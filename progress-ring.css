@@ -1,0 +1,60 @@
+@property --progress-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+progress-ring {
+  display: block;
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #0665f9 0deg var(--progress-angle),
+    #e9eff3 var(--progress-angle) 360deg
+  );
+  transition: --progress-angle 250ms ease;
+}
+
+progress-ring::after {
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+  background: #fff;
+  content: "";
+}
+
+progress-ring[hidden] {
+  display: none;
+}
+
+progress-ring[animated] {
+  animation: progress-spin 1.6s linear infinite;
+}
+
+progress-ring[animated]::before {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: calc(50% - 5px);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #074fc8;
+  content: "";
+}
+
+@keyframes progress-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  progress-ring {
+    transition-duration: 0.01ms;
+  }
+
+  progress-ring[animated] {
+    animation-duration: 4s;
+  }
+}

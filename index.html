@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Progress</title>
+    <link rel="stylesheet" href="./progress-ring.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <main class="demo">
+      <h1 class="demo__title">Progress</h1>
+
+      <div class="demo__content">
+        <div class="demo__preview">
+          <progress-ring id="progress" value="60" aria-label="Прогресс"></progress-ring>
+        </div>
+
+        <div class="controls" role="group" aria-label="Управление прогрессом">
+          <div class="control">
+            <input
+              class="value-input"
+              id="value"
+              name="value"
+              type="number"
+              inputmode="numeric"
+              min="0"
+              max="100"
+              step="1"
+              value="60"
+            />
+            <label for="value">Value</label>
+          </div>
+
+          <label class="control control--switch">
+            <input id="animate" name="animate" type="checkbox" role="switch" />
+            <span class="switch-track" aria-hidden="true"></span>
+            <span>Animate</span>
+          </label>
+
+          <label class="control control--switch">
+            <input id="hide" name="hide" type="checkbox" role="switch" />
+            <span class="switch-track" aria-hidden="true"></span>
+            <span>Hide</span>
+          </label>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
